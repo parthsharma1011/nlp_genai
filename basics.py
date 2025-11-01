@@ -94,19 +94,19 @@
 # target = labels
 
 #tf-idf
-from sklearn.feature_extraction.text import TfidfVectorizer
-import pandas as pd
+# from sklearn.feature_extraction.text import TfidfVectorizer
+# import pandas as pd
 
-documents = ["the cat sat on the mat",
-             "the dog sat on the log",
-             "cats and dogs are animals"]
+# documents = ["the cat sat on the mat",
+#              "the dog sat on the log",
+#              "cats and dogs are animals"]
 
-#matrix creation is out goal 
-tfidf_vectorizer = TfidfVectorizer()
-tfidf_matrix = tfidf_vectorizer.fit_transform(documents)
+# #matrix creation is out goal 
+# tfidf_vectorizer = TfidfVectorizer()
+# tfidf_matrix = tfidf_vectorizer.fit_transform(documents)
 
-df = pd.DataFrame(tfidf_matrix.toarray(), 
-                  columns=tfidf_vectorizer.get_feature_names_out(),
-                  index=['Doc1', 'Doc2', 'Doc3'])
+# df = pd.DataFrame(tfidf_matrix.toarray(), 
+#                   columns=tfidf_vectorizer.get_feature_names_out(),
+#                   index=['Doc1', 'Doc2', 'Doc3'])
 
-print(df.round(3))
+# print(df.round(3))
