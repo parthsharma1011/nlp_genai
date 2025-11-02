@@ -1,3 +1,9 @@
+"""Customer Feedback Analyzer using NLP techniques.
+
+This module provides comprehensive analysis of customer feedback including
+sentiment analysis, entity extraction, and topic modeling.
+"""
+
 import spacy
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
@@ -7,13 +13,32 @@ from transformers import pipeline
 warnings.filterwarnings("ignore")
 
 class FeedbackAnalyzer:
+    """A comprehensive customer feedback analyzer using NLP techniques.
+    
+    This class provides methods for sentiment analysis, entity extraction,
+    and topic modeling of customer reviews and feedback.
+    """
+    
     def __init__(self):
+        """Initialize the FeedbackAnalyzer with required models.
+        
+        Loads the sentiment analysis pipeline from transformers and
+        the spaCy language model for entity recognition.
+        """
         print(f"Loading Models...(this may take a while)")
         self.sentiment_analyzer = pipeline("sentiment-analysis")
         self.nlp = spacy.load("en_core_web_lg")
         print(f"Models Loaded Successfully.")
         
     def analyze_sentiment(self, reviews):
+        """Analyze sentiment of customer reviews.
+        
+        Args:
+            reviews (list): List of review strings to analyze.
+            
+        Returns:
+            list: List of dictionaries containing review, label, and confidence.
+        """
         results = []
         for review in reviews:
             sentiment = self.sentiment_analyzer(review)[0] #clip idea 
@@ -25,6 +50,14 @@ class FeedbackAnalyzer:
         return results
     
     def extract_entities(self, reviews):
+        """Extract named entities from customer reviews.
+        
+        Args:
+            reviews (list): List of review strings to process.
+            
+        Returns:
+            dict: Dictionary with entity types as keys and most common entities as values.
+        """
         all_entities = {
             "PRODUCT":[],
             "ORG:":[],
@@ -43,6 +76,15 @@ class FeedbackAnalyzer:
         return entity_counts
     
     def discover_topics(self, reviews, num_topics=3):
+        """Discover topics in customer reviews using LDA.
+        
+        Args:
+            reviews (list): List of review strings to analyze.
+            num_topics (int): Number of topics to discover. Default is 3.
+            
+        Returns:
+            list: List of dictionaries containing topic numbers and keywords.
+        """
         vectorizer = CountVectorizer(stop_words='english')
         try:
             doc_matrix = vectorizer.fit_transform(reviews)
@@ -62,6 +104,14 @@ class FeedbackAnalyzer:
             print(f"Error in topic discovery: {e}")
             
     def get_summary_stats(self, sentiment_results):
+        """Calculate summary statistics from sentiment analysis results.
+        
+        Args:
+            sentiment_results (list): List of sentiment analysis results.
+            
+        Returns:
+            dict: Dictionary containing review counts and percentages.
+        """
         sentiments = [r['label'] for r in sentiment_results]
         total = len(sentiments)
         positive = sentiments.count('POSITIVE')
@@ -75,6 +125,14 @@ class FeedbackAnalyzer:
         }
         
     def analyze_all(self, reviews):
+        """Perform comprehensive analysis of customer reviews.
+        
+        Args:
+            reviews (list): List of review strings to analyze.
+            
+        Returns:
+            dict: Complete analysis results including sentiment, entities, and topics.
+        """
         print("=="*50)
         print(f"CUSTOMER FEEDBACK ANALYSIS REPORT")
         print("=="*50)
@@ -103,6 +161,11 @@ class FeedbackAnalyzer:
 
 
 def print_results(results):
+    """Print formatted analysis results.
+    
+    Args:
+        results (dict): Analysis results from analyze_all method.
+    """
     print("=="*50)
     print("Summary Statistics:")
     stats = results['stats']
@@ -143,6 +206,8 @@ def print_results(results):
         print("No significant entities found.")
 
 if __name__ == "__main__":
+    """Example usage of the FeedbackAnalyzer class."""
+    # Sample customer reviews for demonstration
     sample_reviews = [
         "I absolutely love the new smartphone I bought! The camera quality is amazing and the battery life lasts all day.",
         "The customer service at the store was terrible. I waited for an hour and no one helped me.",
