@@ -124,7 +124,7 @@ class FeedbackAnalyzer:
             "negative_percentage": round(negative / total * 100, 2)
         }
         
-    def analyze_all(self, reviews):
+    def analyze_all(self, reviews): 
         """Perform comprehensive analysis of customer reviews.
         
         Args:
@@ -160,7 +160,7 @@ class FeedbackAnalyzer:
         }
 
 
-def print_results(results):
+def print_results(results): #graph 
     """Print formatted analysis results.
     
     Args:
@@ -224,4 +224,5 @@ if __name__ == "__main__":
     analyzer = FeedbackAnalyzer()
     analysis_results = analyzer.analyze_all(sample_reviews)
     print_results(analysis_results)
+    
     
