@@ -222,3 +222,47 @@ print(f"{'Word':<15} {'Lemma':<15} {'POS':<10} {'Tag':<10} {'Explanation'}")
 for token in doc:
     explanation = spacy.explain(token.tag_) or "N/A"
     print(f"{token.text:<15} {token.lemma_:<15} {token.pos_:<10} {token.tag_:<10} {spacy.explain(token.tag_)}")
+    
+    
+    
+    
+#flair
+from flair.data import Sentence
+from flair.models import SequenceTagger
+
+# load tagger
+tagger = SequenceTagger.load("flair/ner-english-ontonotes-large")
+
+# make example sentence
+text = """Subject: Urgent: Follow-up on Delayed Order Placed on 22/10/2025
+
+# Dear [Company Name] Customer Support,
+25/10/25 - 11 units/24 units
+# I hope this message finds you well. I am writing to express my concern regarding an order I placed on 22nd October 2025, which has yet to be delivered or made available for pickup. I reside in Delhi, and the delay is causing considerable inconvenience.
+
+# Despite receiving an initial confirmation, I have not received any updates on the status of the shipment. I understand that occasional delays may occur, but it has now been several days beyond the expected delivery window, and I would appreciate some clarity on the situation.
+
+# To help expedite the process, I am available for pickup on the following dates and times:
+
+# 27th October 2025 (Monday) – Anytime between 10:00 AM and 4:00 PM
+# 28th October 2025 (Tuesday) – After 2:00 PM
+# 30th October 2025 (Thursday) – Full day availability
+
+# Please let me know if any of these slots work for your team, or if there are alternative arrangements you can offer. I would also appreciate a tracking update or estimated delivery timeline if pickup is not feasible.
+
+# Looking forward to your prompt response and resolution.
+
+# Warm regards, [Your Full Name] [Your Contact Number] [Your Email Address] Delhi, India"""
+sentence = Sentence(text)
+
+# predict NER tags
+tagger.predict(sentence)
+
+# print sentence
+print(sentence)
+
+# print predicted NER spans
+print('The following NER tags are found:')
+# iterate over entities and print
+for entity in sentence.get_spans('ner'):
+    print(entity)
