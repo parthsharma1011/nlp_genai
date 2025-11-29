@@ -225,4 +225,3 @@ if __name__ == "__main__":
     analysis_results = analyzer.analyze_all(sample_reviews)
     print_results(analysis_results)
     
-    
