@@ -32,12 +32,19 @@ pip install -r requirements.txt
 ```
 
 ### 2. Configure API Keys
-Edit `utils/config.py` and add your API keys:
-```python
-class Config:
-    GEMINI_API_KEY = "your_gemini_api_key_here"
-    SHEET_URL = "your_google_sheets_url"
+Copy the example environment file and add your API keys:
+```bash
+cp .env.example .env
 ```
+
+Edit `.env` file and add your actual API keys:
+```bash
+GEMINI_API_KEY=your_actual_gemini_api_key
+TAVILY_API_KEY=your_actual_tavily_api_key
+SHEET_URL=your_google_sheets_url
+```
+
+**Security Note:** Never commit API keys to version control. The `.env` file is ignored by git.
 
 ### 3. Run Applications
 ```bash

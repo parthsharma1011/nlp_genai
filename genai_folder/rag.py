@@ -5,10 +5,11 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
 from langchain.agents import initialize_agent, Tool, AgentType
 import google.generativeai as genai
+import os
 import warnings
 warnings.filterwarnings("ignore")
 
-gemini_api_key = "your api key"
+gemini_api_key = os.getenv('GEMINI_API_KEY', 'your_api_key_here')
 genai.configure(api_key=gemini_api_key)
 
 #initilaize my llm 
@@ -69,10 +70,10 @@ instructions = ("You are a reasearch assistant and an agent"
                 "Do not acceot foul language, do not accept hateful and toxic language"
                 "do not answer any queries not related to companies information, for such naswers ask user to ask wirstions related to company ot data in vectodb")
 
-# query = f"{instructions}\n\nwhat does ABC.Informatic company do?"
-# response= agent.run(query)
-# print(f"USER: {query}")
-# print(f"AI: {response}")
+query = f"{instructions}\n\nwhat does ABC.Informatic company do?"
+response= agent.run(query)
+print(f"USER: {query}")
+print(f"AI: {response}")
 
 #logic -> llm -> company -> gaurdrails.
 
@@ -80,3 +81,5 @@ instructions = ("You are a reasearch assistant and an agent"
 # response= agent.run(query)
 # print(f"USER: {query}")
 # print(f"AI: {response}")
+
+#Namaste Folks, Lets start in 2-4 minutes
