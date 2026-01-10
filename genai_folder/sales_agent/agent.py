@@ -44,7 +44,7 @@ try:
         print("Langfuse keys not found")
         LANGFUSE_ENABLED = False
 except ImportError:
-    print("⚠ Langfuse not installed")
+    print(" Langfuse not installed")
     LANGFUSE_ENABLED = False
     observe = lambda: lambda f: f  # No-op decorator
     
@@ -456,9 +456,9 @@ def format_output(result: Dict[str, Any]) -> str:
 
 {'─' * 70}
 
-🎯 LEAD SCORE: {result['confidence_score']}/10
+ LEAD SCORE: {result['confidence_score']}/10
 
-📋 ACTION ITEMS:
+ ACTION ITEMS:
 """
     
     for i, action in enumerate(result['action_items'], 1):

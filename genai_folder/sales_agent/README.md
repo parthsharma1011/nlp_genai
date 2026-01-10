@@ -125,7 +125,7 @@ def research_node(state: AgentState) -> AgentState:
 **Outputs:** Web research data, CRM data  
 **APIs Used:** Tavily, Pinecone  
 
-### **Node 2: Analysis** 🧠
+### **Node 2: Analysis** 
 ```python
 @observe()
 def analyze_node(state: AgentState) -> AgentState:
@@ -370,11 +370,11 @@ def create_agent_graph():
 ##  Key Features
 
 - ** Workflow Orchestration**: LangGraph manages complex multi-step process
-- **🧠 AI-Powered Analysis**: Gemini 2.0 Flash for intelligent insights
+- ** AI-Powered Analysis**: Gemini 2.0 Flash for intelligent insights
 - ** Multi-Source Research**: Combines web search + CRM data
 - ** Personalized Content**: Custom pitches based on research
 - ** Lead Qualification**: Automated scoring with reasoning
-- **👁️ Full Observability**: Langfuse tracing for debugging/optimization
+- **️ Full Observability**: Langfuse tracing for debugging/optimization
 - ** Modular Design**: Separated prompts, graceful API failures
 - ** Persistent Storage**: Pinecone for historical data
 

@@ -176,7 +176,7 @@ def print_results(results): #graph
     #Sentiment Details
     print("\n" + "=="*20 + " Individual review Sentiments " + "=="*20)
     for i, result in enumerate(results['sentiment_results'][:5],1):
-        sentiment_emoji = "😊" if result['label'] == 'POSITIVE' else "😞"
+        sentiment_emoji = "" if result['label'] == 'POSITIVE' else ""
         print(f"\n{i}. Review: {result['review']}\n   Sentiment: {result['label']} {sentiment_emoji} (Confidence: {result['confidence']})")
     
     if len(results['sentiment_results']) > 5:

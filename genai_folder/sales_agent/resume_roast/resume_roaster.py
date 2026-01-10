@@ -218,11 +218,11 @@ def create_conditional_crew(job_posting):
     needs_cover_letter = check_cover_letter_requirement(job_posting)
     
     if needs_cover_letter:
-        print("🔍 Cover letter requirement detected! Adding Cover Letter Writer agent...")
+        print(" Cover letter requirement detected! Adding Cover Letter Writer agent...")
         base_agents.append(cover_letter_writer)
         base_tasks.append(cover_letter_task)
     else:
-        print("📝 No cover letter requirement found. Using standard resume workflow...")
+        print(" No cover letter requirement found. Using standard resume workflow...")
     
     return Crew(
         agents=base_agents,
@@ -233,7 +233,7 @@ def create_conditional_crew(job_posting):
 
 def roast_and_improve_resume():
     """Main function to run the resume roasting and improvement process"""
-    print("🔥 RESUME ROASTER & IMPROVER 🔥")
+    print(" RESUME ROASTER & IMPROVER ")
     print("=" * 50)
     
     try:
@@ -252,18 +252,18 @@ def roast_and_improve_resume():
             f.write("RESUME ROASTER & IMPROVER RESULTS\n")
             f.write("=" * 50 + "\n\n")
             if has_cover_letter:
-                f.write("📝 INCLUDES COVER LETTER (Required by job posting)\n\n")
+                f.write(" INCLUDES COVER LETTER (Required by job posting)\n\n")
             f.write(str(result))
         
-        print(f"\n✅ Analysis complete! Results saved to '{output_filename}'")
+        print(f"\n Analysis complete! Results saved to '{output_filename}'")
         
         if has_cover_letter:
-            print("📝 Cover letter was generated as required by the job posting!")
+            print(" Cover letter was generated as required by the job posting!")
         
         return result
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         return None
 
 if __name__ == "__main__":
