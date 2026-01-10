@@ -1,9 +1,9 @@
 # Sales Lead Research Agent - Code Structure & Architecture
 
-## 📋 Overview
+##  Overview
 An AI-powered sales agent that automates company research, analysis, and personalized pitch generation using LangGraph workflow orchestration.
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -19,7 +19,7 @@ An AI-powered sales agent that automates company research, analysis, and persona
 └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
 ```
 
-## 📁 File Structure
+##  File Structure
 
 ```
 sales_agent/
@@ -30,7 +30,7 @@ sales_agent/
 └── README.md         # This documentation
 ```
 
-## 🔧 Core Components
+##  Core Components
 
 ### 1. **Dependencies & Imports**
 ```python
@@ -106,9 +106,9 @@ def analyze_node(state):
         # Function logic with automatic tracing
 ```
 
-## 🔄 Workflow Nodes
+##  Workflow Nodes
 
-### **Node 1: Research** 🔍
+### **Node 1: Research** 
 ```python
 def research_node(state: AgentState) -> AgentState:
     # Gathers data from multiple sources
@@ -149,7 +149,7 @@ def analyze_node(state: AgentState) -> AgentState:
 **APIs Used:** Google Gemini  
 **Tracing:** Full Langfuse observability  
 
-### **Node 3: Pitch Generation** ✍️
+### **Node 3: Pitch Generation** 
 ```python
 @observe()
 def generate_pitch_node(state: AgentState) -> AgentState:
@@ -171,7 +171,7 @@ def generate_pitch_node(state: AgentState) -> AgentState:
 **Outputs:** Personalized sales pitch (email subjects, body, talking points)  
 **APIs Used:** Google Gemini  
 
-### **Node 4: Lead Scoring** 📊
+### **Node 4: Lead Scoring** 
 ```python
 @observe()
 def score_lead_node(state: AgentState) -> AgentState:
@@ -188,7 +188,7 @@ def score_lead_node(state: AgentState) -> AgentState:
 **Outputs:** Lead score (0-10), specific action items  
 **APIs Used:** Google Gemini  
 
-### **Node 5: Save Results** 💾
+### **Node 5: Save Results** 
 ```python
 def save_results_node(state: AgentState) -> AgentState:
     result_data = {
@@ -202,7 +202,7 @@ def save_results_node(state: AgentState) -> AgentState:
     return state
 ```
 
-## 🎯 Prompt Engineering
+##  Prompt Engineering
 
 ### **External Prompt Management**
 All prompts are stored in `prompts.py` for easy maintenance:
@@ -236,7 +236,7 @@ analysis_prompt = ANALYSIS_PROMPT.format(
 )
 ```
 
-## 📊 Observability & Tracing
+##  Observability & Tracing
 
 ### **Langfuse Integration**
 ```python
@@ -265,7 +265,7 @@ def analyze_node(state: AgentState):
 - Performance metrics
 - Error handling
 
-## 🔐 Configuration
+##  Configuration
 
 ### **Environment Variables**
 ```bash
@@ -288,7 +288,7 @@ else:
     llm = None
 ```
 
-## 🚀 Execution Flow
+##  Execution Flow
 
 ### **Main Entry Point**
 ```python
@@ -332,15 +332,15 @@ def create_agent_graph():
     return workflow.compile()
 ```
 
-## 📈 Output Format
+##  Output Format
 
 ### **Final Report Structure**
 ```
 ======================================================================
-📊 RESEARCH REPORT: {Company Name}
+ RESEARCH REPORT: {Company Name}
 ======================================================================
 
-🔍 ANALYSIS:
+ ANALYSIS:
 - Company overview (size, industry, developments)
 - Key decision makers and contacts  
 - Recent news and pain points
@@ -349,7 +349,7 @@ def create_agent_graph():
 
 ──────────────────────────────────────────────────────────────────────
 
-✍️ PERSONALIZED PITCH:
+ PERSONALIZED PITCH:
 - 3 email subject line options
 - Personalized email body (< 150 words)
 - Value proposition
@@ -358,27 +358,27 @@ def create_agent_graph():
 
 ──────────────────────────────────────────────────────────────────────
 
-🎯 LEAD SCORE: X.X/10
+ LEAD SCORE: X.X/10
 
-📋 ACTION ITEMS:
+ ACTION ITEMS:
 1. Specific next step 1
 2. Specific next step 2
 3. Specific next step 3
 ...
 ```
 
-## 🛠️ Key Features
+##  Key Features
 
-- **🔄 Workflow Orchestration**: LangGraph manages complex multi-step process
+- ** Workflow Orchestration**: LangGraph manages complex multi-step process
 - **🧠 AI-Powered Analysis**: Gemini 2.0 Flash for intelligent insights
-- **🔍 Multi-Source Research**: Combines web search + CRM data
-- **✍️ Personalized Content**: Custom pitches based on research
-- **📊 Lead Qualification**: Automated scoring with reasoning
+- ** Multi-Source Research**: Combines web search + CRM data
+- ** Personalized Content**: Custom pitches based on research
+- ** Lead Qualification**: Automated scoring with reasoning
 - **👁️ Full Observability**: Langfuse tracing for debugging/optimization
-- **🔧 Modular Design**: Separated prompts, graceful API failures
-- **💾 Persistent Storage**: Pinecone for historical data
+- ** Modular Design**: Separated prompts, graceful API failures
+- ** Persistent Storage**: Pinecone for historical data
 
-## 🎯 Usage
+##  Usage
 
 ```bash
 # Install dependencies

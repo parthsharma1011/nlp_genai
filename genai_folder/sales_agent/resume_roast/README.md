@@ -1,15 +1,15 @@
-# Resume Roaster & Improver 🔥💼
+# Resume Roaster & Improver 
 
 An AI-powered resume critique and improvement system using CrewAI that brutally analyzes your resume, suggests improvements, and tailors it to specific job postings.
 
-## 🎯 What It Does
+##  What It Does
 
-1. **🔥 Roasts Your Resume**: Brutally honest critique identifying weaknesses
-2. **✨ Improves Everything**: Rewrites sections with better language and structure  
-3. **🎯 Job Matching**: Tailors your resume to specific job postings
-4. **📊 ATS Optimization**: Ensures your resume passes applicant tracking systems
+1. ** Roasts Your Resume**: Brutally honest critique identifying weaknesses
+2. ** Improves Everything**: Rewrites sections with better language and structure  
+3. ** Job Matching**: Tailors your resume to specific job postings
+4. ** ATS Optimization**: Ensures your resume passes applicant tracking systems
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -22,7 +22,7 @@ An AI-powered resume critique and improvement system using CrewAI that brutally 
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Install Dependencies
 ```bash
@@ -39,7 +39,7 @@ Your `.env` file is already configured with:
 python resume_roaster.py
 ```
 
-## 📁 File Structure
+##  File Structure
 
 ```
 resume_roast/
@@ -50,24 +50,24 @@ resume_roast/
 └── explanations.txt      # Detailed explanations
 ```
 
-## 🤖 The AI Crew
+##  The AI Crew
 
-### **Resume Critic** 🔥
+### **Resume Critic** 
 - **Role**: Brutal but constructive feedback
 - **Goal**: Identify every weakness and improvement opportunity
 - **Output**: Detailed critique with 1-10 rating
 
-### **Resume Improver** ✨
+### **Resume Improver** 
 - **Role**: Transform weak resumes into compelling documents
 - **Goal**: Rewrite sections with impact-focused language
 - **Output**: Completely improved resume
 
-### **Job Matcher** 🎯
+### **Job Matcher** 
 - **Role**: Tailor resumes to specific job postings
 - **Goal**: Maximize relevance and keyword matching
 - **Output**: Job-specific tailored resume
 
-## 📊 Sample Output
+##  Sample Output
 
 The system will generate:
 
@@ -76,7 +76,7 @@ The system will generate:
 3. **Tailored Version**: Job-specific customization
 4. **Change Log**: Explanation of all modifications made
 
-## 🔧 Customization
+##  Customization
 
 ### Add Your Own Resume
 Replace the `SAMPLE_RESUME` variable with your actual resume text.
@@ -91,7 +91,7 @@ import PyPDF2
 import docx2txt
 ```
 
-## 🎯 Key Features
+##  Key Features
 
 - **Multi-Agent Collaboration**: Three specialized AI agents work together
 - **Sequential Processing**: Each agent builds on the previous one's work
@@ -100,7 +100,7 @@ import docx2txt
 - **Quantified Improvements**: Adds metrics and measurable achievements
 - **Job-Specific Tailoring**: Customizes resume for each application
 
-## 📈 Expected Improvements
+##  Expected Improvements
 
 - **Structure**: Professional formatting and organization
 - **Language**: Strong action verbs and impact statements
@@ -108,7 +108,7 @@ import docx2txt
 - **Keywords**: Industry-relevant terms for ATS systems
 - **Relevance**: Tailored content for specific job requirements
 
-## 🚀 Usage Examples
+##  Usage Examples
 
 ### Basic Usage
 ```python
@@ -128,12 +128,12 @@ SAMPLE_RESUME = "Your actual resume text here..."
 SAMPLE_JOB_POSTING = "Actual job posting you're applying for..."
 ```
 
-## 📝 Output Files
+##  Output Files
 
 - `resume_analysis_results.txt`: Complete analysis and improved resume
 - Console output: Real-time progress and agent conversations
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - File upload interface (PDF/DOCX)
 - Web interface for easy use

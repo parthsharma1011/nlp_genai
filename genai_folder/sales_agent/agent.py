@@ -182,7 +182,7 @@ def search_crm_data(company_name: str):
 
 def research_node(state: AgentState) -> AgentState:
     """Node 1: Gather information from Tavily and Pinecone"""
-    print(f"\n🔍 Researching: {state['company_name']}")
+    print(f"\n Researching: {state['company_name']}")
     
     company_name = state["company_name"]
     
@@ -335,7 +335,7 @@ def score_lead_node(state: AgentState) -> AgentState:
 
 def save_results_node(state: AgentState) -> AgentState:
     """Node 5: Save results to Pinecone and prepare final output"""
-    print("\n💾 Saving results...")
+    print("\n Saving results...")
     
     # In production, save to Pinecone here
     # For demo, just print confirmation
@@ -348,7 +348,7 @@ def save_results_node(state: AgentState) -> AgentState:
         "pitch": state["pitch"][:500]
     }
     
-    print(f"  ✓ Results saved for {state['company_name']}")
+    print(f"   Results saved for {state['company_name']}")
     # In production: pinecone_index.upsert(vectors=...)
     
     state["next_step"] = "end"
@@ -403,7 +403,7 @@ def research_company(company_name: str) -> Dict[str, Any]:
         metadata={"company": company_name, "workflow": "sales_lead_research"}
     ):
         print("=" * 70)
-        print(f"🚀 SALES LEAD RESEARCHER AGENT")
+        print(f" SALES LEAD RESEARCHER AGENT")
         print("=" * 70)
         
         # Initialize state
@@ -443,15 +443,15 @@ def format_output(result: Dict[str, Any]) -> str:
     
     output = f"""
 {'=' * 70}
-📊 RESEARCH REPORT: {result['company_name']}
+ RESEARCH REPORT: {result['company_name']}
 {'=' * 70}
 
-🔍 ANALYSIS:
+ ANALYSIS:
 {result['analysis']}
 
 {'─' * 70}
 
-✍️  PERSONALIZED PITCH:
+  PERSONALIZED PITCH:
 {result['pitch']}
 
 {'─' * 70}
@@ -485,10 +485,10 @@ if __name__ == "__main__":
         # Optionally save to file
         with open(f"research_{company_to_research.lower().replace(' ', '_')}.txt", "w") as f:
             f.write(format_output(result))
-        print(f"✓ Report saved to research_{company_to_research.lower().replace(' ', '_')}.txt")
+        print(f" Report saved to research_{company_to_research.lower().replace(' ', '_')}.txt")
         
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\n Error: {e}")
         print("\nMake sure you've set your API keys at the top of the file!")
     
     # Example 2: Research multiple companies

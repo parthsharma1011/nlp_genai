@@ -1,6 +1,6 @@
 # Resume Roaster & Improver - Technical Explanations
 
-## 🏗️ CrewAI Architecture Explained
+## Architecture Explained
 
 ### What is CrewAI?
 CrewAI is a framework for building multi-agent AI systems where different AI agents collaborate to complete complex tasks. Think of it as a team of AI specialists working together.
@@ -11,7 +11,7 @@ CrewAI is a framework for building multi-agent AI systems where different AI age
 - **Quality**: Multiple perspectives ensure comprehensive analysis
 - **Modularity**: Easy to add new agents or modify existing ones
 
-## 🤖 Agent Breakdown
+## Agent Breakdown
 
 ### 1. Resume Critic Agent
 ```python
@@ -76,10 +76,10 @@ job_matcher = Agent(
 - Shows direct relevance to the role
 - Maximizes keyword matching for ATS
 
-## 🔄 Sequential Process Flow
+##  Sequential Process Flow
 
 ```
-Input Resume → Critic Analysis → Improved Resume → Job-Tailored Resume
+Input Resume  Critic Analysis  Improved Resume  Job-Tailored Resume
 ```
 
 ### Step 1: Critique
@@ -100,7 +100,7 @@ Input Resume → Critic Analysis → Improved Resume → Job-Tailored Resume
 - Customizes resume for specific role
 - Explains changes made
 
-## 🧠 AI Model Integration
+##  AI Model Integration
 
 ### Google Gemini 2.0 Flash
 ```python
@@ -122,7 +122,7 @@ llm = ChatGoogleGenerativeAI(
 - Allows for varied language while maintaining accuracy
 - Good for creative writing tasks like resume improvement
 
-## 📊 Task Design Philosophy
+##  Task Design Philosophy
 
 ### Detailed Task Descriptions
 Each task includes:
@@ -146,7 +146,7 @@ critique_task = Task(
 - Measurable results
 - Clear success criteria
 
-## 🔧 Technical Implementation Details
+##  Technical Implementation Details
 
 ### Environment Management
 ```python
@@ -158,7 +158,7 @@ load_dotenv()  # Loads API keys from .env file
 try:
     result = resume_crew.kickoff()
 except Exception as e:
-    print(f"❌ Error: {e}")
+    print(f" Error: {e}")
 ```
 
 ### File Output
@@ -167,7 +167,7 @@ with open("resume_analysis_results.txt", "w") as f:
     f.write(str(result))
 ```
 
-## 🎯 Key Advantages of This Approach
+##  Key Advantages of This Approach
 
 ### 1. Multi-Perspective Analysis
 - Different agents provide different viewpoints
@@ -189,7 +189,7 @@ with open("resume_analysis_results.txt", "w") as f:
 - Modular design allows for easy modifications
 - Can handle different resume types and industries
 
-## 🚀 Performance Optimizations
+##  Performance Optimizations
 
 ### Efficient Prompting
 - Specific, focused prompts for each agent
@@ -206,7 +206,7 @@ with open("resume_analysis_results.txt", "w") as f:
 - Can be used for further analysis
 - Prevents re-running expensive operations
 
-## 🔮 Extension Possibilities
+##  Extension Possibilities
 
 ### Additional Agents
 - **Cover Letter Writer**: Generate matching cover letters
@@ -226,7 +226,7 @@ with open("resume_analysis_results.txt", "w") as f:
 - **Slack Bot**: Resume review through Slack
 - **Email Service**: Submit resumes via email
 
-## 📈 Success Metrics
+##  Success Metrics
 
 ### Quantifiable Improvements
 - Resume rating improvement (before/after)
