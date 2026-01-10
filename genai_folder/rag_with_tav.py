@@ -45,7 +45,9 @@ def search_documents(query):
 def search_tavily(query):
     try:
         print(f"Fallback triggered. Searching Tavily for: {query}")
-        search_results = tavily_client.search(query=query, search_depth="advanced", max_results=3)
+        search_results = tavily_client.search(query=query, 
+                                              search_depth="advanced", 
+                                              max_results=3)
         
         if not search_results.get('results'):
             return "No relevant information found in Tavily."
